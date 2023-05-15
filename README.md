@@ -170,8 +170,6 @@ python TranSG-Pro.py --dataset CAISA_B --probe_type nm.nm --length 40
 
 ```
 
-Please see ```TranSG-Pro.py``` for more details.
-
 
 ## Application to Different-Level Skeleton Representations 
 
@@ -188,7 +186,7 @@ python TranSG-Pro.py --dataset KS20 --probe probe --level J
 ```
 
 ## Future Update
-We are collecting and integrating all state-of-the-art skeleton-based person re-ID models, and will build a model zoo for researchers to seamlessly apply ProMISE and other SSL tasks for evaluation.
+We are collecting and integrating all state-of-the-art skeleton-based models including person re-ID, action recognition etc., and will build a model zoo for researchers to seamlessly apply ProMISE and other skeleton semantics learning (SSL) tasks for evaluation.
 
 ## License
 
