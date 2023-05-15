@@ -91,9 +91,9 @@ Datasets
 ```
 **Note**: KS20 data need first transforming ".mat" to ".txt". If you are interested in the complete preprocessing of KS20 and CASIA-B, please contact us and we will share. We recommend to directly download the preprocessed data [**here (pwd: 7je2)**](https://pan.baidu.com/s/1R7CEsyMJsEnZGFLqwvchBg).
 
-## Model Usage
-
-To (1) apply ProMISE to TranSG to obtain skeleton representations and (2) validate their effectiveness on the person re-ID task on a specific dataset (probe), please simply run the following command:  
+## Applying ProMISE to State-of-the-Art Models
+### Application to [TranSG](https://github.com/Kali-Hac/TranSG)
+To apply **ProMISE** to TranSG to obtain skeleton representations and validate their effectiveness on the person re-ID task on a specific dataset (probe), please simply run the following command:  
 
 ```bash
 python TranSG-Pro.py --dataset KS20 --probe probe
@@ -106,7 +106,7 @@ python TranSG-Pro.py --dataset KS20 --probe probe
 # --prob_s 0.5
 # --GPC_lambda 0.5 (the lambda for fusing downstream objective (GPC in TranSG) and SSL objective (ProMISE))
 # --length [4, 6, 8, 10] 
-# --(H, n_heads, L_transfomer, seq_lambda, GPC_lambda, lr, etc.) using optimal settings in TranSG 
+# --(H, n_heads, L_transfomer, seq_lambda, GPC_lambda, lr, etc.) using optimal settings of TranSG 
 # --mode [Train (for training), Eval (for testing)]
 # --gpu [0, 1, ...]
 
@@ -118,6 +118,27 @@ To print evaluation results (Top-1, Top-5, Top-10 Accuracy, mAP) of the best mod
 ```bash
 python TranSG-Pro.py --dataset KS20 --probe probe --mode Eval
 ```
+
+### Application to [SPC-MGR](https://github.com/Kali-Hac/SPC-MGR)
+To apply **ProMISE** to SPC-MGR to obtain skeleton representations and validate their effectiveness on the person re-ID task on a specific dataset (probe), please simply run the following command:  
+
+```bash
+python SPC-MGR-Pro.py --dataset KS20 --probe probe
+
+# Default options: --dataset KS20 --probe probe --length 6  --gpu 0
+# --dataset [IAS, KS20, BIWI, KGBD, CASIA_B]
+# --probe ['probe' (the only probe for KS20 or KGBD), 'A' (for IAS-A probe), 'B' (for IAS-B probe), 'Walking' (for BIWI-Walking probe), 'Still' (for BIWI-Still probe)] 
+# --alpha 0.5
+# --prob_t 0.5
+# --prob_s 0.5
+# --D_lambda 0.5 (the lambda for fusing downstream objective (SPC in SPC-MGR) and SSL objective (ProMISE))
+# --length [4, 6, 8, 10] 
+# --(t, lr, eps, min_samples, m, fusion_lambda)  using optimal settings of SPC-MGR
+# --mode [UF (for unsupervised training), DG (for direct domain generalization)]
+# --gpu [0, 1, ...]
+
+```
+Please see ```SPC-MGR-Pro.py``` for more details.
 
 
 ## Application to Model-Estimated Skeleton Data 
@@ -151,6 +172,23 @@ python TranSG-Pro.py --dataset CAISA_B --probe_type nm.nm --length 40
 
 Please see ```TranSG-Pro.py``` for more details.
 
+
+## Application to Different-Level Skeleton Representations 
+
+### Usage
+To (1) apply ProMISE to TranSG on skeleton representations of a specific level (joint-level, part-level, body-level) and (2) individually validate the effectiveness on the person re-ID task on the person re-ID task on a specific dataset (probe), please simply run the following command:  
+
+```bash
+python TranSG-Pro.py --dataset KS20 --probe probe --level J
+
+# Default options: --dataset KS20 --probe probe --length 6
+# --dataset [IAS, KS20, BIWI, KGBD]
+# --probe ['probe' (the only probe for KS20 or KGBD), 'A' (for IAS-A probe), 'B' (for IAS-B probe), 'Walking' (for BIWI-Walking probe), 'Still' (for BIWI-Still probe)]
+# --level [J (joint-level), P (part-level), B (body-level)]
+```
+
+## Future Update
+We are collecting and integrating all state-of-the-art skeleton-based person re-ID models, and will build a model zoo for researchers to seamlessly apply ProMISE and other SSL tasks for evaluation.
 
 ## License
 
