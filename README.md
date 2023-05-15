@@ -186,7 +186,7 @@ python TranSG-Pro.py --dataset KS20 --probe probe --level J
 ```
 
 ## Future Update
-We are collecting and integrating all state-of-the-art skeleton-based models including person re-ID and action recognition models. A model zoo will be built for researchers to seamlessly apply ProMISE and other skeleton semantics learning (SSL) tasks for evaluation.
+We are collecting and integrating all state-of-the-art skeleton-based models including person re-ID and action recognition models. A model zoo with user-friendly APIs will be released for researchers to seamlessly apply ProMISE and other skeleton semantics learning (SSL) tasks for evaluation.
 
 ## License
 
