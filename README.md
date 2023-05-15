@@ -154,7 +154,7 @@ We provide already pre-processed skeleton data of CASIA B for **single-condition
 Please download the pre-processed datasets into the directory ``Datasets/``. <br/>
 
 ### Usage
-To (1) apply ProMISE to TranSG to obtain skeleton representations and (2) validate their effectiveness on the person re-ID task on CASIA B under **single-condition** and **cross-condition** settings, please simply run the following command:
+To (1) apply **ProMISE** to TranSG to obtain skeleton representations and (2) validate their effectiveness on the person re-ID task on CASIA B under **single-condition** and **cross-condition** settings, please simply run the following command:
 
 ```bash
 python TranSG-Pro.py --dataset CAISA_B --probe_type nm.nm --length 40
@@ -174,7 +174,7 @@ python TranSG-Pro.py --dataset CAISA_B --probe_type nm.nm --length 40
 ## Application to Different-Level Skeleton Representations 
 
 ### Usage
-To (1) apply ProMISE to TranSG on skeleton representations of a specific level (joint-level, part-level, body-level) and (2) individually validate the effectiveness on the person re-ID task on the person re-ID task on a specific dataset (probe), please simply run the following command:  
+To (1) apply **ProMISE** to TranSG on skeleton representations of a specific level (joint-level, part-level, body-level) and (2) individually validate the effectiveness on the person re-ID task on the person re-ID task on a specific dataset (probe), please simply run the following command:  
 
 ```bash
 python TranSG-Pro.py --dataset KS20 --probe probe --level J
@@ -186,7 +186,7 @@ python TranSG-Pro.py --dataset KS20 --probe probe --level J
 ```
 
 ## Future Update
-We are collecting and integrating all state-of-the-art skeleton-based models including person re-ID, action recognition etc., and will build a model zoo for researchers to seamlessly apply ProMISE and other skeleton semantics learning (SSL) tasks for evaluation.
+We are collecting and integrating all state-of-the-art skeleton-based models including person re-ID and action recognition models. A model zoo will be built for researchers to seamlessly apply ProMISE and other skeleton semantics learning (SSL) tasks for evaluation.
 
 ## License
 
