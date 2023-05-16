@@ -172,10 +172,10 @@ python TranSG-Pro.py --dataset CAISA_B --probe_type nm.nm --length 40
 ```
 
 
-## Application to Different-Level Skeleton Representations 
+## Application to Different Skeleton Modeling
 
 ### Usage
-To (1) apply **ProMISE** to TranSG on skeleton representations of a specific level (joint-level, part-level, body-level) and (2) individually validate the effectiveness on the person re-ID task on the person re-ID task on a specific dataset (probe), please simply run the following command:  
+To (1) apply **ProMISE** to TranSG on skeleton representations of a specific modeling level (joint-level, part-level, body-level) and (2) individually validate the effectiveness on the person re-ID task on the person re-ID task on a specific dataset (probe), please simply run the following command:  
 
 ```bash
 python TranSG-Pro.py --dataset KS20 --probe probe --level J
