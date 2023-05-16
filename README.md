@@ -93,7 +93,7 @@ Datasets
 **Note**: KS20 data need first transforming ".mat" to ".txt". If you are interested in the complete preprocessing of KS20 and CASIA-B, please contact us and we will share. We recommend to directly download the preprocessed data [**here (pwd: 7je2)**](https://pan.baidu.com/s/1R7CEsyMJsEnZGFLqwvchBg).
 
 ## Applying ProMISE to State-of-the-Art Models
-### Application to [TranSG](https://github.com/Kali-Hac/TranSG)
+### Application to [TranSG](https://arxiv.org/abs/2303.06819)
 To apply **ProMISE** to TranSG to obtain skeleton representations and validate their effectiveness on the person re-ID task on a specific dataset (probe), please simply run the following command:  
 
 ```bash
@@ -120,7 +120,7 @@ To print evaluation results (Top-1, Top-5, Top-10 Accuracy, mAP) of the best mod
 python TranSG-Pro.py --dataset KS20 --probe probe --mode Eval
 ```
 
-### Application to [SPC-MGR](https://github.com/Kali-Hac/SPC-MGR)
+### Application to SPC-MGR
 To apply **ProMISE** to SPC-MGR to obtain skeleton representations and validate their effectiveness on the person re-ID task on a specific dataset (probe), please simply run the following command:  
 
 ```bash
