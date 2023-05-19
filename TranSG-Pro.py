@@ -331,7 +331,7 @@ if FLAGS.mode == 'Train':
 			G_recon_loss = 0
 
 			# spatial reconstruction using PSM, node_mask is the random masking of spatial positions
-			def structure_loss(h):
+			def skeleton_recon_loss(h):
 				mask_G = tf.boolean_mask(h, tf.reshape(node_mask, [-1]), axis=-2)
 
 				G_h = tf.reduce_mean(mask_G, axis=-2)
@@ -352,7 +352,7 @@ if FLAGS.mode == 'Train':
 				return G_recon_loss
 
 			# temporal reconstruction using PTM, seq_mask is the random masking of temporal positions
-			def trajectory_loss(h_ori):
+			def trajectory_recon_loss(h_ori):
 				part_T_enc_1 = tf.boolean_mask(h_ori, tf.reshape(seq_mask, [-1]), axis=1)
 				# [batch_size, time_step - mask_num, joint_num, H] -> [batch_size, joint_num, time_step - mask_num, H]
 				part_T_enc_1 = tf.transpose(part_T_enc_1, [0, 2, 1, 3])
@@ -378,8 +378,8 @@ if FLAGS.mode == 'Train':
 				seq_recon_loss = seq_recon_loss_1
 				return seq_recon_loss
 
-			spatial_loss = structure_loss(spatial_h)
-			temporal_loss = trajectory_loss(spatial_h)
+			spatial_loss = skeleton_recon_loss(spatial_h)
+			temporal_loss = trajectory_recon_loss(spatial_h)
 
 			recon_loss = float(FLAGS.alpha) * spatial_loss + (1 - float(FLAGS.alpha)) * temporal_loss
 
@@ -1082,7 +1082,7 @@ if FLAGS.mode == 'Train':
 
 					if tr_step % display == 0:
 						print(
-							'[%s] Batch num: %d | D Loss (GPC): %.5f | SSL Loss: %.5f' %
+							'[%s] Batch num: %d | D Loss (GPC): %.5f | SSL Loss (ProMISE): %.5f' %
 							(str(epoch), tr_step, GPC_loss_, SSL_loss_))
 					tr_step += 1
 				if FLAGS.save_flag == '1':
