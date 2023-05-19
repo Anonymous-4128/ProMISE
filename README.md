@@ -185,7 +185,7 @@ python TranSG-Pro.py --dataset KS20 --probe probe --level J
 # --level [J (joint-level), P (part-level), B (body-level)]
 ```
 
-## Pesudo Codes of ProMISE
+## Pesudo Codes for ProMISE
 ```bash
 
 # Independently and randomly sample J spatial masks, following Bernoulli(J, 1 - prob_s), prob_s is the masking probability
