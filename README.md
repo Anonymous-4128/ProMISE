@@ -92,7 +92,7 @@ Datasets
 **Note**: KS20 data need first transforming ".mat" to ".txt". If you are interested in the complete preprocessing of KS20 and CASIA-B, please contact us and we will share. We recommend to directly download the preprocessed data [**here (pwd: 7je2)**](https://pan.baidu.com/s/1R7CEsyMJsEnZGFLqwvchBg).
 
 ## Applying ProMISE to State-of-the-Art Models
-Here we provide two sample codes for applying **ProMISE** to TranSG and SPC-MGR models. The adaptation of ProMISE to other models can be simply implemented based on the attached [**pesudo code**](https://github.com/Anonymous-4128/ProMISE/tree/main/pseudo-code).
+Here we provide two sample codes for applying **ProMISE** to TranSG and SPC-MGR models. The adaptation of ProMISE to other models can be simply implemented based on the attached [pesudo code](https://github.com/Anonymous-4128/ProMISE/tree/main/pseudo-code).
 
 ### Application to [TranSG](https://arxiv.org/abs/2303.06819)
 To apply **ProMISE** to TranSG to obtain skeleton representations and validate their effectiveness on the person re-ID task on a specific dataset (probe), please simply run the following command:  
@@ -190,7 +190,7 @@ python TranSG-Pro.py --dataset KS20 --probe probe --level J
 ## [Pesudo Codes for ProMISE](https://github.com/Anonymous-4128/ProMISE/tree/main/pseudo-code)
 
 ## Future Update
-We are collecting and integrating all state-of-the-art skeleton-based models including person re-ID and action recognition models. A model zoo with user-friendly APIs will be released for researchers to seamlessly apply ProMISE and other skeleton semantics learning (SSL) tasks for evaluation.
+We are collecting and integrating all state-of-the-art skeleton-based models. A model zoo with user-friendly APIs will be released for researchers to seamlessly apply ProMISE and other skeleton semantics learning (SSL) tasks for evaluation.
 
 ## License
 
