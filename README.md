@@ -185,7 +185,7 @@ python TranSG-Pro.py --dataset KS20 --probe probe --level J
 # --level [J (joint-level), P (part-level), B (body-level)]
 ```
 
-## Pesudo Codes for Reference
+## Pesudo Codes of ProMISE
 ```bash
 
 # Independently and randomly sample J spatial masks, following Bernoulli(J, 1 - prob_s), prob_s is the masking probability
@@ -214,13 +214,10 @@ def PTM(prob_t):
 def skeleton_recon_loss(h, spatial_mask, gt_pos):
      # Apply masks to positions in the skeletons and average unmasked representations
      mask_h = apply_mask_and_ave(h, spatial_mask)
-     
      # Use MLP to predict ground-truth body-joint positions [f, J, 3]
      pred_pos = MLP(mask_h)
-     
      # Compute MSE loss between predicted positions and ground-truth positions of skeleton sequences
      s_recon_loss = MSE_loss(pred_pos, gt_pos) / batch_size
-     
      return s_recon_loss
 
 
@@ -231,13 +228,10 @@ def skeleton_recon_loss(h, spatial_mask, gt_pos):
 def trajectory_recon_loss(traj_h, temporal_mask, gt_pos):
      # Apply masks to positions in the trajectory and average unmasked representations
      mask_traj_h = apply_mask_and_ave(traj_h, temporal_mask)
-     
      # Use MLP to predict ground-truth trajectory positions [J, f, 3]
      pred_pos = MLP(mask_traj_h)
-     
      # Transpose shape [J, f, 3] to shape [f, J, 3] to match the original sequence shape
      pred_pos = transpose(pred_pos, [1, 0, 2])
-     
      # Compute MSE loss between predicted positions and ground-truth positions of skeleton sequences
      t_recon_loss = MSE_loss(pred_pos, gt_pos) / batch_size
 
