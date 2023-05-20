@@ -1,6 +1,6 @@
 ```bash
 
-# Independently and randomly sample J spatial masks, following Bernoulli(J, 1 - prob_s), prob_s is the masking probability
+# Independently and randomly sample J spatial masks from Bernoulli(J, 1 - prob_s), prob_s is the masking probability
 def PSM(prob_s):
      s_mask = np.zeros([J, ])
      # number of zero masks is from 0 to J-1
@@ -9,7 +9,7 @@ def PSM(prob_s):
           s_mask = prob >= prob_s
      return s_mask
 
-# Independently and randomly sample f temporal masks, following Bernoulli(f, 1 - prob_t), prob_t is the masking probability
+# Independently and randomly sample f temporal masks from Bernoulli(f, 1 - prob_t), prob_t is the masking probability
 def PTM(prob_t):
      t_mask = np.zeros([f, ])
      # number of zero masks is from 0 to f-1
